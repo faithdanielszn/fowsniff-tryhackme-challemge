@@ -79,10 +79,15 @@ Service versions help pick the correct tools/techniques and identify known weak 
 
 I visited the web page identified during my Nmap scan and discovered a reference to the machine owner's Twitter account.
 
+![webpage](webpage.png)
+
 ## What I Found
 
 - A visible link or mention on the site pointing to a Twitter handle (e.g., `@exampleuser`).
 - The web page content included social links or an author/contact area that contained the Twitter information.
+
+![twitter](twitter.png)
+
 
 ## Why This Matters
 
