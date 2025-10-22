@@ -74,3 +74,34 @@ Service versions help pick the correct tools/techniques and identify known weak 
 - Any banners or extra information (FTP welcome messages, HTTP titles) that might contain usernames, paths, or clues.
 
 ![nmap](nmap.png)
+
+# Step 3 — Web Enumeration (Found Twitter Handle)
+
+I visited the web page identified during my Nmap scan and discovered a reference to the machine owner's Twitter account.
+
+## What I Found
+
+- A visible link or mention on the site pointing to a Twitter handle (e.g., `@exampleuser`).
+- The web page content included social links or an author/contact area that contained the Twitter information.
+
+## Why This Matters
+
+Social links often contain usernames that can be reused as login names across services (FTP, mail, SSH).
+
+Public profiles may include email addresses, alternative usernames, or other breadcrumbs useful for enumeration or guessing credentials.
+
+External profiles (Twitter, LinkedIn, GitHub) can reveal development habits, common password patterns, or private links accidentally posted.
+
+## How I Documented It
+
+- Took a screenshot of the web page showing the Twitter handle.
+- Saved the URL and the exact handle text in my notes (`/notes` folder).
+- Added the handle to my list of usernames to test against discovered services.
+
+## Follow-up Actions
+
+- Check the Twitter profile for publicly visible email, bios, or links to other accounts.
+- Use the username as a potential login when attempting service authentication (carefully and ethically, within the lab).
+- Correlate any names/emails found with files or banners downloaded from services (FTP, POP3) to look for credential reuse.
+
+**Note:** All actions were performed on the TryHackMe lab machine and resources. Do not probe or enumerate real people’s accounts or services without explicit authorization.
