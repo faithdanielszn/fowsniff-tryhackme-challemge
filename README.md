@@ -65,6 +65,7 @@ To quickly identify which services are running (FTP, POP3, SSH, HTTP, etc.) and 
 
 Service versions help pick the correct tools/techniques and identify known weak configurations.
 
+
 # What I Looked For
 
 - Open ports and corresponding services.
@@ -72,3 +73,4 @@ Service versions help pick the correct tools/techniques and identify known weak 
 - Unusual or unexpected services that could indicate additional attack paths.
 - Any banners or extra information (FTP welcome messages, HTTP titles) that might contain usernames, paths, or clues.
 
+![nmap](nmap.png)
