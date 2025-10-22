@@ -46,3 +46,29 @@ I enumerated open services like FTP and POP3, harvested credentials and files, u
 - **Maintain VPN Connection**:
   - Keep the VPN running throughout the exercise; it is required to access TryHackMe machines.****
 
+![ovpn](ovpn.png)
+
+# Step 2 — Network Scan (Nmap)
+
+I scanned the target from my attacking machine using Nmap to discover open services and versions.
+
+nmap -sV --open <target-ip>
+# What the Command Does
+
+- `-sV`: Probes open ports to determine the service name and version (service fingerprinting).
+- `--open`: Shows only open ports, reducing noise in the output.
+- `<target-ip>`: The IP address of the TryHackMe machine.
+
+# Why I Ran This
+
+To quickly identify which services are running (FTP, POP3, SSH, HTTP, etc.) and their versions so I know where to focus enumeration and exploitation efforts.
+
+Service versions help pick the correct tools/techniques and identify known weak configurations.
+
+# What I Looked For
+
+- Open ports and corresponding services.
+- Service versions that hint at vulnerabilities or known misconfigurations.
+- Unusual or unexpected services that could indicate additional attack paths.
+- Any banners or extra information (FTP welcome messages, HTTP titles) that might contain usernames, paths, or clues.
+
