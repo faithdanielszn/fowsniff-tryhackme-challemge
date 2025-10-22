@@ -1,4 +1,4 @@
-# fowsniff-tryhackme-challemge
+# fowsniff-tryhackme-challenge
 a practical showcase of network enumeration, service fingerprinting, and exploiting weak authentication skills
 ---
 
