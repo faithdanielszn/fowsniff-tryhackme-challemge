@@ -97,17 +97,6 @@ Public profiles may include email addresses, alternative usernames, or other bre
 
 External profiles (Twitter, LinkedIn, GitHub) can reveal development habits, common password patterns, or private links accidentally posted.
 
-## How I Documented It
-
-- Took a screenshot of the web page showing the Twitter handle.
-- Saved the URL and the exact handle text in my notes (`/notes` folder).
-- Added the handle to my list of usernames to test against discovered services.
-
-## Follow-up Actions
-
-- Check the Twitter profile for publicly visible email, bios, or links to other accounts.
-- Use the username as a potential login when attempting service authentication (carefully and ethically, within the lab).
-- Correlate any names/emails found with files or banners downloaded from services (FTP, POP3) to look for credential reuse.
 
 **Note:** All actions were performed on the TryHackMe lab machine and resources. Do not probe or enumerate real people’s accounts or services without explicit authorization.
 
@@ -133,4 +122,44 @@ I visited the company’s Twitter page and found a tweet that referenced a now-r
 - **Social Mirrors**: Often reproduce removed content and sometimes include added metadata (timestamps, usernames) that help reconstruct timelines.
 
 Using both increases confidence in recovered data and provides redundancy.
+
+## Step 5 — Dehashing MD5 Credentials
+
+I found a list of usernames and passwords stored as MD5 hashes in the recovered files. I used an online MD5 de-hashing service to recover plaintext values and saved the results into separate files for usernames and passwords.
+
+### What I Found
+- A file (or snippet) containing username and password MD5 hashes.
+- Hashes were clearly labelled or paired in the recovered content.
+
+## Step 6 POP3 — brute-force (Metasploit)
+
+I searched Metasploit for POP3 modules, selected the appropriate scanner, set the target and my wordlists, and ran the module to test the dehashed credentials.
+
+### Goal
+- Test recovered/dehashed credentials against the target POP3 service to verify validity and identify valid logins.
+
+### Tools
+- `msfconsole` (Metasploit Framework)
+- Wordlists for usernames and passwords (e.g. `users.txt`, `passwords.txt`)
+
+
+## Step 7 — POP3 Access — Validated Credentials & Manual Connection
+
+During credential validation I confirmed a successful authentication for account **`seina`** with password **`scoobydoo2`** (discovered during the Metasploit scan). I used those credentials to manually connect to the target POP3 service using `nc`, specifying the company IP and the POP3 port discovered in our Nmap reconnaissance.
+
+---
+
+### What I did (concise)
+1. Verified Metasploit-reported successful login for `seina` → `scoobydoo2`.
+2. Reproduced the login manually to capture session banner, server responses, and to verify mailbox access.
+3. Connection was made with `nc` (netcat) to the company IP and the POP3 port discovered in the Nmap scan.
+
+---
+## Step 8 — Mailbox Intelligence → SSH Pivot
+
+I reviewed Seina’s mailbox and found a temporary password in one message. In a second message, a colleague’s casual comment (a nonchalant remark referencing “stones” in the thread) indicated the colleague had not followed the IT security instructions to change the temporary password after the breach. That suggested the temporary password might still be valid for the colleague’s account.
+
+Using that insight I attempted to reuse the temporary password and successfully accessed the colleague’s account over SSH from my attacking machine.
+
+
 
