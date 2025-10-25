@@ -104,6 +104,8 @@ External profiles (Twitter, LinkedIn, GitHub) can reveal development habits, com
 
 I visited the company’s Twitter page and found a tweet that referenced a now-removed Pastebin post. I used two parallel approaches to recover the missing content.
 
+![pastebin](pastebin.png)
+
 ### What I saw
 - A tweet linking to a Pastebin URL.
 - The Pastebin post was removed (the direct link returned nothing).
@@ -112,6 +114,7 @@ I visited the company’s Twitter page and found a tweet that referenced a now-r
 1. Searched the Internet Archive (Wayback Machine) for the exact Pastebin URL.
 2. Navigated to the calendar snapshots and selected a capture from the date the tweet was posted.
 3. Recovered the archived page content and saved a local copy for analysis and documentation.
+![waybackmachine](wayback.png)
 ### Approach B — Social Trail / Comment Mirrors
 1. Reviewed replies and comments on the original tweet and found a user who reposted the same content or linked to an alternative location.
 2. The comment contained a link to a GitHub repository / Gist where the breached information had been mirrored.
