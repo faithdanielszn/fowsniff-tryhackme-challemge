@@ -110,3 +110,27 @@ External profiles (Twitter, LinkedIn, GitHub) can reveal development habits, com
 - Correlate any names/emails found with files or banners downloaded from services (FTP, POP3) to look for credential reuse.
 
 **Note:** All actions were performed on the TryHackMe lab machine and resources. Do not probe or enumerate real people’s accounts or services without explicit authorization.
+
+## Step 4 — OSINT: Twitter → Pastebin → Archive / Mirror Recovery
+
+I visited the company’s Twitter page and found a tweet that referenced a now-removed Pastebin post. I used two parallel approaches to recover the missing content.
+
+### What I saw
+- A tweet linking to a Pastebin URL.
+- The Pastebin post was removed (the direct link returned nothing).
+
+### Approach A — Wayback Machine (archive lookup)
+1. Searched the Internet Archive (Wayback Machine) for the exact Pastebin URL.
+2. Navigated to the calendar snapshots and selected a capture from the date the tweet was posted.
+3. Recovered the archived page content and saved a local copy for analysis and documentation.
+### Approach B — Social Trail / Comment Mirrors
+1. Reviewed replies and comments on the original tweet and found a user who reposted the same content or linked to an alternative location.
+2. The comment contained a link to a GitHub repository / Gist where the breached information had been mirrored.
+3. Followed that link, located the mirrored content, and saved a copy for analysis.
+
+### Why Both Approaches Matter
+- **Archives**: Recover content removed from the original host but still captured by crawlers.
+- **Social Mirrors**: Often reproduce removed content and sometimes include added metadata (timestamps, usernames) that help reconstruct timelines.
+
+Using both increases confidence in recovered data and provides redundancy.
+
